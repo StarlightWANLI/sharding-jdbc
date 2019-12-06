@@ -1,4 +1,4 @@
-package com.cimu.shardingjdbc.entity;
+package com.wanli.shardingjdbc.entity;
 
 
 import lombok.Data;

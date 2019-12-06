@@ -1,8 +1,8 @@
-package com.cimu.shardingjdbc.service.impl;
+package com.wanli.shardingjdbc.service.impl;
 
-import com.cimu.shardingjdbc.entity.User;
-import com.cimu.shardingjdbc.mapper.UserDao;
-import com.cimu.shardingjdbc.service.UserService;
+import com.wanli.shardingjdbc.entity.User;
+import com.wanli.shardingjdbc.mapper.UserDao;
+import com.wanli.shardingjdbc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

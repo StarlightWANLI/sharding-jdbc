@@ -1,8 +1,7 @@
-package com.cimu.shardingjdbc;
+package com.wanli.shardingjdbc;
 
 
-import com.cimu.shardingjdbc.entity.User;
-import com.cimu.shardingjdbc.util.UserIdUtil;
+import com.wanli.shardingjdbc.util.UserIdUtil;
 import org.junit.jupiter.api.Test;
 
 /**

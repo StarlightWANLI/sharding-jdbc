@@ -1,9 +1,9 @@
-package com.cimu.shardingjdbc;
+package com.wanli.shardingjdbc;
 
-import com.cimu.shardingjdbc.entity.User;
-import com.cimu.shardingjdbc.mapper.UserDao;
-import com.cimu.shardingjdbc.service.UserService;
-import com.cimu.shardingjdbc.util.UserIdUtil;
+import com.wanli.shardingjdbc.entity.User;
+import com.wanli.shardingjdbc.mapper.UserDao;
+import com.wanli.shardingjdbc.service.UserService;
+import com.wanli.shardingjdbc.util.UserIdUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -37,16 +37,17 @@ public class ShardingJdbcApplicationTests {
     public void save() {
 	    User user = new User();
      //   user.setId(21L);
-        user.setId(UserIdUtil.nextId());
+      // user.setId(UserIdUtil.nextId());
         user.setRealName("1111");
         user.setDelFlag("0");
         userService.save(user);
+        System.out.println(user);
     }
 
     @Test
     public void batchSave() {
         List<User> users = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             User user = new User();
             //   user.setId(21L);
             Long id = UserIdUtil.nextId();

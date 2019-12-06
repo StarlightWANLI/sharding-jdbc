@@ -1,4 +1,4 @@
-package com.cimu.shardingjdbc.util;
+package com.wanli.shardingjdbc.util;
 
 import cn.hutool.core.lang.Snowflake;
 import cn.hutool.core.util.IdUtil;

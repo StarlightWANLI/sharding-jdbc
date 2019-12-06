@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cimu.shardingjdbc.mapper.UserDao">
+<mapper namespace="com.wanli.shardingjdbc.mapper.UserDao">
 
-    <resultMap id="BaseResultMap" type="com.cimu.shardingjdbc.entity.User" >
+    <resultMap id="BaseResultMap" type="com.wanli.shardingjdbc.entity.User" >
         <id column="id" property="id" jdbcType="INTEGER" />
         <result column="real_name" property="realName" jdbcType="VARCHAR" />
         <result column="mobile" property="mobile" jdbcType="VARCHAR" />
@@ -26,10 +26,9 @@
         from user
     </select>
 
-    <insert id="insert" parameterType="com.cimu.shardingjdbc.entity.User" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insert" parameterType="com.wanli.shardingjdbc.entity.User" useGeneratedKeys="true" keyProperty="id">
         insert into user
         (
-        `id`,
         `real_name`,
         `mobile`,
         `create_time`,
@@ -38,7 +37,6 @@
         )
         values
         (
-        #{id},
         #{realName},
         #{mobile},
         #{createTime},
@@ -47,7 +45,7 @@
         )
     </insert>
 
-    <update id="update" parameterType="com.cimu.shardingjdbc.entity.User">
+    <update id="update" parameterType="com.wanli.shardingjdbc.entity.User">
         update user
         <set>
             <if test="realName != null ">`real_name` = #{realName},</if>

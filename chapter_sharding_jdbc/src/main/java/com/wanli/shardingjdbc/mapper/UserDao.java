@@ -1,7 +1,7 @@
-package com.cimu.shardingjdbc.mapper;
+package com.wanli.shardingjdbc.mapper;
 
 
-import com.cimu.shardingjdbc.entity.User;
+import com.wanli.shardingjdbc.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

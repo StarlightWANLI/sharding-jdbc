@@ -1,7 +1,7 @@
-package com.cimu.shardingjdbc.service;
+package com.wanli.shardingjdbc.service;
 
 
-import com.cimu.shardingjdbc.entity.User;
+import com.wanli.shardingjdbc.entity.User;
 
 
 /**
