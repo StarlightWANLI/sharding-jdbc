@@ -1,0 +1,19 @@
+CREATE TABLE `user0` (
+  `id` BIGINT(64) NOT NULL PRIMARY KEY  COMMENT '主键ID',
+  `real_name` VARCHAR(100) DEFAULT NULL COMMENT '真实名称',
+  `mobile` VARCHAR(11) DEFAULT NULL COMMENT '手机号码',
+  `password` VARCHAR(20) DEFAULT NULL COMMENT '密码',
+  `create_time` DATETIME DEFAULT NULL COMMENT '创建日期',
+  `update_time` DATETIME DEFAULT NULL COMMENT '修改日期',
+  `del_flag` CHAR(1) NOT NULL DEFAULT '0' COMMENT '删除标记 1:删除;0:未删除'
+)COMMENT='用户表';
+
+CREATE TABLE `user1` (
+  `id` BIGINT(64) NOT NULL PRIMARY KEY  COMMENT '主键ID',
+  `real_name` VARCHAR(100) DEFAULT NULL COMMENT '真实名称',
+  `mobile` VARCHAR(11) DEFAULT NULL COMMENT '手机号码',
+  `password` VARCHAR(20) DEFAULT NULL COMMENT '密码',
+  `create_time` DATETIME DEFAULT NULL COMMENT '创建日期',
+  `update_time` DATETIME DEFAULT NULL COMMENT '修改日期',
+  `del_flag` CHAR(1) NOT NULL DEFAULT '0' COMMENT '删除标记 1:删除;0:未删除'
+)COMMENT='用户表';
