@@ -1,12 +1,12 @@
 package com.wanli.shardingjdbc;
 
-import cn.hutool.core.util.IdUtil;
 import com.wanli.shardingjdbc.entity.Order;
 import com.wanli.shardingjdbc.entity.OrderItem;
 import com.wanli.shardingjdbc.repository.mybatis.MybatisAddressRepository;
 import com.wanli.shardingjdbc.repository.mybatis.MybatisOrderItemRepository;
 import com.wanli.shardingjdbc.repository.mybatis.MybatisOrderRepository;
 import com.wanli.shardingjdbc.service.impl.OrderServiceImpl;
+import com.wanli.shardingjdbc.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,6 +22,9 @@ public class ShardingJdbcApplicationTests {
 
 	@Autowired
 	private OrderServiceImpl orderServiceImpl;
+
+    @Autowired
+    private UserServiceImpl userService;
 
 
     @Resource
@@ -70,6 +73,17 @@ public class ShardingJdbcApplicationTests {
             item.setStatus("INSERT_TEST");
             mybatisOrderItemRepository.insert(item);
         }
+    }
+
+
+    @Test
+    public void initUser() throws SQLException {
+        userService.initEnvironment();
+    }
+
+    @Test
+    public void userTestProcessSuccess() throws SQLException {
+        userService.processSuccess();
     }
 
 

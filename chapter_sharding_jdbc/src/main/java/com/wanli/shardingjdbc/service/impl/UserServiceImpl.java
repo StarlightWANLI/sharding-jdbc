@@ -18,7 +18,7 @@
 package com.wanli.shardingjdbc.service.impl;
 
 import com.wanli.shardingjdbc.entity.User;
-import com.wanli.shardingjdbc.repository.UserRepository;
+import com.wanli.shardingjdbc.repository.mybatis.MybatisUserRepository;
 import com.wanli.shardingjdbc.service.ExampleService;
 import org.springframework.stereotype.Service;
 
@@ -31,17 +31,17 @@ import java.util.List;
 public class UserServiceImpl implements ExampleService {
     
     @Resource
-    private UserRepository userRepository;
+    private MybatisUserRepository mybatisUserRepository;
     
     @Override
     public void initEnvironment() throws SQLException {
-        userRepository.createTableIfNotExists();
-        userRepository.truncateTable();
+        mybatisUserRepository.createTableIfNotExists();
+        mybatisUserRepository.truncateTable();
     }
     
     @Override
     public void cleanEnvironment() throws SQLException {
-        userRepository.dropTable();
+        mybatisUserRepository.dropTable();
     }
     
     @Override
@@ -62,7 +62,7 @@ public class UserServiceImpl implements ExampleService {
             user.setUserId(i);
             user.setUserName("test_mybatis_" + i);
             user.setPwd("pwd_mybatis_" + i);
-            userRepository.insert(user);
+            mybatisUserRepository.insert(user);
             result.add((long) user.getUserId());
         }
         return result;
@@ -79,14 +79,14 @@ public class UserServiceImpl implements ExampleService {
     private void deleteData(final List<Long> userIds) throws SQLException {
         System.out.println("---------------------------- Delete Data ----------------------------");
         for (Long each : userIds) {
-            userRepository.delete(each);
+            mybatisUserRepository.delete(each);
         }
     }
     
     @Override
     public void printData() throws SQLException {
         System.out.println("---------------------------- Print User Data -----------------------");
-        for (Object each : userRepository.selectAll()) {
+        for (Object each : mybatisUserRepository.selectAll()) {
             System.out.println(each);
         }
     }
