@@ -1,72 +1,78 @@
 package com.wanli.shardingjdbc;
 
-import com.wanli.shardingjdbc.entity.User;
-import com.wanli.shardingjdbc.mapper.UserDao;
-import com.wanli.shardingjdbc.service.UserService;
-import com.wanli.shardingjdbc.util.UserIdUtil;
+import cn.hutool.core.util.IdUtil;
+import com.wanli.shardingjdbc.entity.Order;
+import com.wanli.shardingjdbc.entity.OrderItem;
+import com.wanli.shardingjdbc.repository.mybatis.MybatisAddressRepository;
+import com.wanli.shardingjdbc.repository.mybatis.MybatisOrderItemRepository;
+import com.wanli.shardingjdbc.repository.mybatis.MybatisOrderRepository;
+import com.wanli.shardingjdbc.service.impl.OrderServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 
+import javax.annotation.Resource;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @SpringBootTest
 public class ShardingJdbcApplicationTests {
+
 	@Autowired
-	private UserService userService;
+	private OrderServiceImpl orderServiceImpl;
 
-    @Autowired
-    UserDao userDao;
 
-	@Test
-	public void getById() {
-        User user = userService.getById(13L);
-        System.out.println(user);
+    @Resource
+    private MybatisOrderRepository mybatisOrderRepository;
+
+    @Resource
+    private MybatisOrderItemRepository mybatisOrderItemRepository;
+
+    @Resource
+    private MybatisAddressRepository mybatisAddressRepository;
+
+
+
+    @Test
+    public void init() throws SQLException {
+        orderServiceImpl.initEnvironment();
     }
 
     @Test
-    public void findAll() {
-        List<User> users = userDao.findAll();
-        System.out.println(users);
+    public void processSuccess() throws SQLException {
+        orderServiceImpl.processSuccess();
     }
 
-    @Rollback(false)
-    @Test
-    public void save() {
-	    User user = new User();
-     //   user.setId(21L);
-      // user.setId(UserIdUtil.nextId());
-        user.setRealName("1111");
-        user.setDelFlag("0");
-        userService.save(user);
-        System.out.println(user);
-    }
 
     @Test
-    public void batchSave() {
-        List<User> users = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            User user = new User();
-            //   user.setId(21L);
-            Long id = UserIdUtil.nextId();
-            user.setId(id);
-            user.setRealName("测试");
-            user.setDelFlag("0");
-            users.add(user);
+    public void insertTest() throws SQLException {
+        List<Order> orders = new ArrayList<>();
+        List<OrderItem> orderItems = new ArrayList<>();
+        Random random = new Random();
+
+        for (int i = 1; i <= 10; i++) {
+            //根据userid确认分库
+            int userId = random.nextInt(10);
+
+            //根据orderid确定分表
+            Order order = new Order();
+            order.setUserId(userId);
+            order.setAddressId(i);
+            order.setStatus("INSERT_TEST");
+            orders.add(order);
+            mybatisOrderRepository.insert(order);
+
+            OrderItem item = new OrderItem();
+            item.setOrderId(order.getOrderId());
+            item.setUserId(userId);
+            item.setStatus("INSERT_TEST");
+            mybatisOrderItemRepository.insert(item);
         }
-        users.parallelStream().forEach(e->userDao.insert(e));
     }
 
-    @Rollback(false)
-    @Test
-    public void update() {
-        User user = new User();
-        user.setId(13L);
-        user.setRealName("2222");
-        userService.update(user);
-    }
+
 
 }
 

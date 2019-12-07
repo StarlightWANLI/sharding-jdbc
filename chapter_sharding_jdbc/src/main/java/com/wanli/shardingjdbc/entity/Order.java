@@ -19,19 +19,25 @@ package com.wanli.shardingjdbc.entity;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class Order implements Serializable {
     
-    private static final long serialVersionUID = 263434701950670170L;
+    private static final long serialVersionUID = 661434701950670670L;
+    
+    private long orderId;
     
     private int userId;
     
-    private String userName;
+    private long addressId;
     
-    private String userNamePlain;
+    private String status;
     
-    private String pwd;
+    public long getOrderId() {
+        return orderId;
+    }
     
-    private String assistedQueryPwd;
+    public void setOrderId(final long orderId) {
+        this.orderId = orderId;
+    }
     
     public int getUserId() {
         return userId;
@@ -41,40 +47,24 @@ public class User implements Serializable {
         this.userId = userId;
     }
     
-    public String getUserName() {
-        return userName;
+    public String getStatus() {
+        return status;
     }
     
-    public void setUserName(final String userName) {
-        this.userName = userName;
+    public void setStatus(final String status) {
+        this.status = status;
     }
     
-    public String getUserNamePlain() {
-        return userNamePlain;
+    public long getAddressId() {
+        return addressId;
     }
     
-    public void setUserNamePlain(final String userNamePlain) {
-        this.userNamePlain = userNamePlain;
-    }
-    
-    public String getPwd() {
-        return pwd;
-    }
-    
-    public void setPwd(final String pwd) {
-        this.pwd = pwd;
-    }
-    
-    public String getAssistedQueryPwd() {
-        return assistedQueryPwd;
-    }
-    
-    public void setAssistedQueryPwd(final String assistedQueryPwd) {
-        this.assistedQueryPwd = assistedQueryPwd;
+    public void setAddressId(final long addressId) {
+        this.addressId = addressId;
     }
     
     @Override
     public String toString() {
-        return String.format("user_id: %d, user_name: %s, user_name_plain: %s, pwd: %s, assisted_query_pwd: %s", userId, userName, userNamePlain, pwd, assistedQueryPwd);
+        return String.format("order_id: %s, user_id: %s, address_id: %s, status: %s", orderId, userId, addressId, status);
     }
 }

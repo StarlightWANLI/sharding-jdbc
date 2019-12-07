@@ -1,0 +1,164 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : localhost
+ Source Server Type    : MySQL
+ Source Server Version : 80011
+ Source Host           : localhost:3306
+ Source Schema         : demo_ds_0
+
+ Target Server Type    : MySQL
+ Target Server Version : 80011
+ File Encoding         : 65001
+
+ Date: 07/12/2019 20:34:04
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for t_address
+-- ----------------------------
+DROP TABLE IF EXISTS `t_address`;
+CREATE TABLE `t_address`  (
+  `address_id` bigint(20) NOT NULL,
+  `address_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`address_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of t_address
+-- ----------------------------
+INSERT INTO `t_address` VALUES (1, 'address_1');
+INSERT INTO `t_address` VALUES (2, 'address_2');
+INSERT INTO `t_address` VALUES (3, 'address_3');
+INSERT INTO `t_address` VALUES (4, 'address_4');
+INSERT INTO `t_address` VALUES (5, 'address_5');
+INSERT INTO `t_address` VALUES (6, 'address_6');
+INSERT INTO `t_address` VALUES (7, 'address_7');
+INSERT INTO `t_address` VALUES (8, 'address_8');
+INSERT INTO `t_address` VALUES (9, 'address_9');
+INSERT INTO `t_address` VALUES (10, 'address_10');
+
+-- ----------------------------
+-- Table structure for t_order_0
+-- ----------------------------
+DROP TABLE IF EXISTS `t_order_0`;
+CREATE TABLE `t_order_0`  (
+  `order_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `address_id` bigint(20) NOT NULL,
+  `status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`order_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of t_order_0
+-- ----------------------------
+INSERT INTO `t_order_0` VALUES (410166175751188480, 2, 2, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410166175923154944, 4, 4, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410166176048984064, 6, 6, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410166176191590400, 8, 8, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410166176330002432, 10, 10, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410166420044230656, 2, 2, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410166420123922432, 4, 4, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410166420195225600, 6, 6, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410166420270723072, 8, 8, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410166420346220544, 10, 10, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410168807072968704, 2, 2, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410168807349792768, 4, 4, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410168807597256704, 6, 6, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410168807848914944, 8, 8, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410168808108961792, 10, 10, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410170069914988544, 4, 8, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410170496509259776, 0, 2, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410170496635088896, 2, 4, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410170496857387008, 0, 8, 'INSERT_TEST');
+INSERT INTO `t_order_0` VALUES (410170496987410432, 0, 10, 'INSERT_TEST');
+
+-- ----------------------------
+-- Table structure for t_order_1
+-- ----------------------------
+DROP TABLE IF EXISTS `t_order_1`;
+CREATE TABLE `t_order_1`  (
+  `order_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `address_id` bigint(20) NOT NULL,
+  `status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`order_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of t_order_1
+-- ----------------------------
+INSERT INTO `t_order_1` VALUES (410170068119826433, 8, 1, 'INSERT_TEST');
+INSERT INTO `t_order_1` VALUES (410170069608804353, 8, 3, 'INSERT_TEST');
+INSERT INTO `t_order_1` VALUES (410170069860462593, 0, 7, 'INSERT_TEST');
+INSERT INTO `t_order_1` VALUES (410170069990486017, 4, 9, 'INSERT_TEST');
+INSERT INTO `t_order_1` VALUES (410170495548764161, 6, 1, 'INSERT_TEST');
+INSERT INTO `t_order_1` VALUES (410170496576368641, 8, 3, 'INSERT_TEST');
+INSERT INTO `t_order_1` VALUES (410170496807055361, 4, 7, 'INSERT_TEST');
+INSERT INTO `t_order_1` VALUES (410170496928690177, 8, 9, 'INSERT_TEST');
+
+-- ----------------------------
+-- Table structure for t_order_item_0
+-- ----------------------------
+DROP TABLE IF EXISTS `t_order_item_0`;
+CREATE TABLE `t_order_item_0`  (
+  `order_item_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `order_id` bigint(20) NULL DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  `status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`order_item_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 410164922530902017 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of t_order_item_0
+-- ----------------------------
+INSERT INTO `t_order_item_0` VALUES (410166175814103040, 410166175751188480, 2, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410166175952515072, 410166175923154944, 4, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410166176082538496, 410166176048984064, 6, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410166176225144832, 410166176191590400, 8, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410166176359362560, 410166176330002432, 10, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410166420081979392, 410166420044230656, 2, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410166420144893952, 410166420123922432, 4, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410166420220391424, 410166420195225600, 6, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410166420295888896, 410166420270723072, 8, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410166420362997760, 410166420346220544, 10, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410168807148466176, 410168807072968704, 2, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410168807412707328, 410168807349792768, 4, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410168807660171264, 410168807597256704, 6, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410168807907635200, 410168807848914944, 8, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410168808180264960, 410168808108961792, 10, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410170069952737280, 410170069914988544, 4, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410170496542814208, 410170496509259776, 0, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410170496664449024, 410170496635088896, 2, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410170496895135744, 410170496857387008, 0, 'INSERT_TEST');
+INSERT INTO `t_order_item_0` VALUES (410170497020964864, 410170496987410432, 0, 'INSERT_TEST');
+
+-- ----------------------------
+-- Table structure for t_order_item_1
+-- ----------------------------
+DROP TABLE IF EXISTS `t_order_item_1`;
+CREATE TABLE `t_order_item_1`  (
+  `order_item_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `order_id` bigint(20) NULL DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  `status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`order_item_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of t_order_item_1
+-- ----------------------------
+INSERT INTO `t_order_item_1` VALUES (410170069495558145, 410170068119826433, 8, 'INSERT_TEST');
+INSERT INTO `t_order_item_1` VALUES (410170069646553089, 410170069608804353, 8, 'INSERT_TEST');
+INSERT INTO `t_order_item_1` VALUES (410170069885628417, 410170069860462593, 0, 'INSERT_TEST');
+INSERT INTO `t_order_item_1` VALUES (410170070019846145, 410170069990486017, 4, 'INSERT_TEST');
+INSERT INTO `t_order_item_1` VALUES (410170496479899649, 410170495548764161, 6, 'INSERT_TEST');
+INSERT INTO `t_order_item_1` VALUES (410170496605728769, 410170496576368641, 8, 'INSERT_TEST');
+INSERT INTO `t_order_item_1` VALUES (410170496828026881, 410170496807055361, 4, 'INSERT_TEST');
+INSERT INTO `t_order_item_1` VALUES (410170496958050305, 410170496928690177, 8, 'INSERT_TEST');
+
+SET FOREIGN_KEY_CHECKS = 1;

@@ -77,7 +77,7 @@
 		<!--通用Mapper-->
 <!--		<dependency>
 			<groupId>tk.mybatis</groupId>
-			<artifactId>mapper-spring-boot-starter</artifactId>
+			<artifactId>repository-spring-boot-starter</artifactId>
 			<version>1.1.4</version>
 		</dependency>-->
 

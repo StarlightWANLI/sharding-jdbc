@@ -12,7 +12,7 @@
 
         <!-- 这里的插件配置一定要注意，稍微错误点，就会出现 generator.MapperPlugin不能实例化的异常-->
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-        <!-- tk.mybatis.mapper.common.Mapper-->
+        <!-- tk.mybatis.repository.common.Mapper-->
         <property name="mappers" value="com.wxswj.common.base.BaseMapper"/>
         <property name="caseSensitive" value="true"/>
     </plugin>

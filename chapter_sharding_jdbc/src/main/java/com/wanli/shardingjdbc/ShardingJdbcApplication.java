@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.wanli.shardingjdbc.mapper")
+@MapperScan("com.wanli.shardingjdbc.repository")
 public class ShardingJdbcApplication {
 
 	public static void main(String[] args) {
