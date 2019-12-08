@@ -17,8 +17,10 @@
 
 package com.wanli.shardingjdbc.entity;
 
+import javax.persistence.Table;
 import java.io.Serializable;
 
+@Table(name="t_user")
 public class User implements Serializable {
     
     private static final long serialVersionUID = 263434701950670170L;
